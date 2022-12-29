@@ -34,6 +34,8 @@ def new_game_setup():
     global total_points
     total_points = 0
     round_start()
+
+
 def round_start(dice=6):
     global round
     global dice_reroll
@@ -73,7 +75,8 @@ def round_start(dice=6):
         # print(dice_to_keep_tupl)
         # for each in dice_to_keep_tupl:
         #     print(type(each))
-        dice_to_keep_tupl = [int(i) for a, i in enumerate(dice_to_keep)]
+        # dice_to_keep_tupl = [int(i) for a, i in enumerate(dice_to_keep)]
+        dice_to_keep_tupl = [int(value) for value in dice_to_keep]
         dice_to_keep_tupl = tuple(dice_to_keep_tupl)
         # print(type(dice_to_keep_tupl))
         # print(dice_to_keep_tupl)
