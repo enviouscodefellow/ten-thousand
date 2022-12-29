@@ -6,10 +6,9 @@ class GameLogic:
         roll = []
         for die in range(0, dice):
             roll.append(randint(1, 6))
-            print(roll)
-        return tuple(roll)
+            # print(roll)
+        return tuple(sorted(roll))
 
-# GameLogic.roll_dice(6)
 
     def calculate_score(dice):
         score_dice = 0
@@ -62,13 +61,17 @@ class GameLogic:
         )
 
         dice_scoring_dict = dict((key, value) for key, value in dice_scoring)
-        # print(len(dice_scoring))
-        # print(len(dice_scoring_dict))
-        # print(dice_scoring_dict)
-        # print(dice_scoring_dict.get(dice))
+        # dice_scoring_counter_list = []
+        # for key in dice_scoring_dict:
+        #     dice_scoring_counter_list.append(Counter(key))
 
+        # for each in dice_scoring_dict:
+        #     for each in each:
+        #         print(type(each),each)
+
+        # print(dice)
         score_dice = dice_scoring_dict.get(dice)
-        return score_dice
+        return int(score_dice)
 
         # for key in dice_scoring_dict.keys():
         #     if key == dice:
@@ -77,4 +80,5 @@ class GameLogic:
         #     return score_dice
 
 
-print(GameLogic.calculate_score((1,)))
+# print(GameLogic.roll_dice(6))
+# print(GameLogic.calculate_score(GameLogic.roll_dice(6)))
