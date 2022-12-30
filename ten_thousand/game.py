@@ -60,11 +60,10 @@ def round_start(dice=6):
     dice_to_keep = input("> ")
     dice_to_keep = dice_to_keep.lower()
 
-
     if dice_to_keep == 'q':
         print(dedent(f"Thanks for playing. You earned {total_points} points"))
 
-    elif dice_to_keep.isdigit() != True:
+    elif not dice_to_keep.isdigit():
         print("Please enter only integers (1-6) that match each die you would like to save. No spaces")
         round_start()
 

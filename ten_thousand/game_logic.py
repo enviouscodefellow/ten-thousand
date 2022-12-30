@@ -12,9 +12,9 @@ class GameLogic:
 
     def calculate_score(dice):
         score_dice = 0
-        # dice_total = Counter(dice)
+        dice_counter = Counter(dice)
         # dice_items = dice_total.items()
-        dice_scoring = tuple(
+        dice_scoring_tupl = tuple(
             [
                 (tuple(), 0),
                 ((1,), 100),
@@ -59,26 +59,29 @@ class GameLogic:
                 ((1, 1, 1, 2, 2, 2), 1200),
             ],
         )
+        dice_scoring_list = list(dice_scoring_tupl)
 
-        dice_scoring_dict = dict((key, value) for key, value in dice_scoring)
-        # dice_scoring_counter_list = []
-        # for key in dice_scoring_dict:
-        #     dice_scoring_counter_list.append(Counter(key))
+        dice_scoring_dict = dict((key, value) for key, value in dice_scoring_tupl)
+        dice_scoring_counter_list = []
+        for key in dice_scoring_dict:
+            dice_scoring_counter_list.append(Counter(key))
+        # print(dice_scoring_counter_list)
+        dice_scoring_dict_values = dice_scoring_dict.values()
+        # print(list(dice_scoring_dict_values))
+        counter_scoring_tupl = tuple(zip(dice_scoring_counter_list, dice_scoring_dict_values))
+        print(counter_scoring_tupl)
+        # counter_scoring_dict = dict((key, value) for key, value in counter_scoring_tupl)
 
-        # for each in dice_scoring_dict:
-        #     for each in each:
-        #         print(type(each),each)
-
-        # print(dice)
+        print(dice)
         score_dice = dice_scoring_dict.get(dice)
-        return int(score_dice)
+        return score_dice
 
-        # for key in dice_scoring_dict.keys():
-        #     if key == dice:
-        #         print(key)
-        #         score_dice += dice_scoring_dict[key]
-        #     return score_dice
+        # if not dice:
+        #     return 0
+        # elif dice:
+        #     score_dice = counter_scoring_dict.get(dice_counter)
 
 
 # print(GameLogic.roll_dice(6))
-# print(GameLogic.calculate_score(GameLogic.roll_dice(6)))
+print(GameLogic.calculate_score(GameLogic.roll_dice(6)))
+
