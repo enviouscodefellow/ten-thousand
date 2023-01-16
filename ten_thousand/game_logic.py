@@ -12,7 +12,7 @@ class GameLogic:
 
     def calculate_score(dice):
         score_dice = 0
-        dice_counter = Counter(dice)
+        # dice_counter = Counter(dice)
         # dice_items = dice_total.items()
         dice_scoring_tupl = tuple(
             [
@@ -69,10 +69,10 @@ class GameLogic:
         dice_scoring_dict_values = dice_scoring_dict.values()
         # print(list(dice_scoring_dict_values))
         counter_scoring_tupl = tuple(zip(dice_scoring_counter_list, dice_scoring_dict_values))
-        print(counter_scoring_tupl)
+        # print(counter_scoring_tupl)
         # counter_scoring_dict = dict((key, value) for key, value in counter_scoring_tupl)
 
-        print(dice)
+        # print(dice)
         score_dice = dice_scoring_dict.get(dice)
         return score_dice
 
@@ -83,5 +83,5 @@ class GameLogic:
 
 
 # print(GameLogic.roll_dice(6))
-print(GameLogic.calculate_score(GameLogic.roll_dice(6)))
+# print(GameLogic.calculate_score(GameLogic.roll_dice(6)))
 
