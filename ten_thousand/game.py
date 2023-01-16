@@ -52,19 +52,38 @@ def round_start(dice=6):
             Rolling {dice} dice...
             """))
     print(dedent(f"""
-    *** {roll} ***
-    Enter dice to keep, or (q)uit:
+    *** {roll} ***"""))
+    if GameLogic.calculate_score(dice) == 0:
+        print(dedent(f"""
+            *** {roll} ***
+            ****************************************
+            **        Zilch!!! Round over         **
+            ****************************************
+            """))
+        round_start()
+    print(dedent(f"""Enter dice to keep, or (q)uit:
           """))
     roll_save = roll
     dice_to_keep = []
     dice_to_keep = input("> ")
     dice_to_keep = dice_to_keep.lower()
 
-
+    if len(dice_to_keep) > len(roll) or not all([item in roll for item in dice_to_keep]):
+        print(dedent(f"Cheater!!! Or possibly made a typo..."))
+        print(dedent(f"""
+            *** {roll} ***
+            """))
+        print(dedent(f"""Enter dice to keep, or (q)uit:
+          """))
+        roll_save = roll
+        dice_to_keep = []
+        dice_to_keep = input("> ")
+        dice_to_keep = dice_to_keep.lower()
+    
     if dice_to_keep == 'q':
         print(dedent(f"Thanks for playing. You earned {total_points} points"))
 
-    elif dice_to_keep.isdigit() != True:
+    elif not dice_to_keep.isdigit():
         print("Please enter only integers (1-6) that match each die you would like to save. No spaces")
         round_start()
 
